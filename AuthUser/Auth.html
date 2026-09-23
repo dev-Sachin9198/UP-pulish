@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UP Police Recruitment and Promotion Board</title>
+    <link rel="icon" type="image/png" href="../Logo/favicon.png">
+    <link rel="stylesheet" href="Auth.css">
+</head>
+<body>
+    <div style="margin-bottom: 20px;"><img src="../Logo/meripahchaan.png"/ alt="DigiLocker"></div>
+     <div class="wrap">
+    <div class="card">
+      <h1>UP Police Recruitment and Promotion Board</h1>
+      <p class="desc">
+        You are about to link your DigiLocker account with UP Police Recruitment
+        and Promotion Board application of UP POLICE RECRUITMENT BOARD.
+        You will be signed up for DigiLocker account if it does not exist.
+      </p>
+
+      <div class="field">
+        <input type="password" id="aadhaar" placeholder="Enter Aadhaar or VID Number*">
+        <button type="button" class="toggle-eye" id="toggleEye" aria-label="Show/Hide">👁️</button>
+      </div>
+
+      <label class="field-label">Please enter the following text in the box below:</label>
+      <div class="captcha-row">
+        <div class="captcha-image" id="captchaImage"></div>
+        <div class="captcha-input">
+          <input type="text" id="captchaInput" placeholder="" autocomplete="off">
+        </div>
+      </div>
+      <p class="retry-line">Unable to read the above image? <a id="tryAnother">Try another!</a></p>
+
+      <p class="error-msg" id="errorMsg"></p>
+
+      <button class="btn-next" id="nextBtn" type="button">Next</button>
+    </div>
+    <p class="footer-link"><a href="#" id="returnLink">Return to UP Police Recruitment and Promotion Board</a></p>
+  </div>
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal-box">
+      <p>Are you sure you want to return to UP Police Recruitment and Promotion Board ?
+
+</p>
+      <div class="modal-actions">
+        <button type="button" class="btn-yes" id="modalYes">Yes</button>
+        <button type="button" class="btn-no" id="modalNo">No</button>
+      </div>
+    </div>
+  </div>
+  <script src="./Auth.js"></script>
+</body>
+</html>
