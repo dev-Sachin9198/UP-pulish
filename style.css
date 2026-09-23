@@ -995,3 +995,552 @@ video {
 
 }
 
+
+.notice-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 99999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.62);
+
+    backdrop-filter: blur(3px);
+}
+
+
+/* Popup visible */
+
+.notice-overlay.show {
+    display: flex;
+}
+
+
+/* =========================================================
+   POPUP BOX
+========================================================= */
+
+.notice-popup {
+    width: min(850px, 100%);
+
+    max-height: min(88vh, 750px);
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    animation: noticePopupOpen 0.25s ease;
+}
+
+
+/* =========================================================
+   POPUP ANIMATION
+========================================================= */
+
+@keyframes noticePopupOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   POPUP HEADER
+========================================================= */
+
+.notice-header {
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 18px 22px;
+
+    background: #9ab2c7;
+
+    border-bottom: 1px solid #8099ae;
+}
+
+
+.notice-header h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    line-height: 1.3;
+}
+
+
+.notice-header p {
+    margin: 4px 0 0;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CLOSE ICON
+========================================================= */
+
+.notice-close {
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    color: #ffffff;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.notice-close:hover {
+    background: #bc3636;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   POPUP CONTENT
+========================================================= */
+
+.notice-content {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 22px 24px;
+
+    scrollbar-width: thin;
+
+    scrollbar-color: #9ab2c7 #eeeeee;
+}
+
+
+/* Chrome / Edge scrollbar */
+
+.notice-content::-webkit-scrollbar {
+    width: 7px;
+}
+
+.notice-content::-webkit-scrollbar-track {
+    background: #eeeeee;
+}
+
+.notice-content::-webkit-scrollbar-thumb {
+    background: #9ab2c7;
+
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   NOTICE ITEM
+========================================================= */
+
+.notice-item {
+    display: grid;
+
+    grid-template-columns: 34px 1fr;
+
+    gap: 14px;
+
+    padding: 16px;
+
+    margin-bottom: 14px;
+
+    background: #f7f9fb;
+
+    border: 1px solid #e1e5e9;
+
+    border-left: 4px solid #584281;
+
+    border-radius: 8px;
+}
+
+
+.notice-item:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.notice-number {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #584281;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.notice-en {
+    margin: 0 0 9px;
+
+    color: #222222;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+.notice-hi {
+    margin: 0;
+
+    color: #555555;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SUB NOTICES
+========================================================= */
+
+.sub-notice {
+    margin-top: 14px;
+
+    padding-left: 12px;
+
+    border-left: 3px solid #9ab2c7;
+}
+
+
+.sub-item {
+    display: grid;
+
+    grid-template-columns: 38px 1fr;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+
+.sub-item:last-child {
+    margin-bottom: 0;
+}
+
+
+.sub-item strong {
+    color: #584281;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   POPUP FOOTER
+========================================================= */
+
+.notice-footer {
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding: 14px 22px;
+
+    background: #f4f5f6;
+
+    border-top: 1px solid #dddddd;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.notice-close-btn {
+    min-width: 110px;
+
+    padding: 11px 22px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #584281;
+
+    color: #ffffff;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.notice-close-btn:hover {
+    background: #bc3636;
+
+    transform: translateY(-2px);
+}
+
+
+.notice-close-btn:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .notice-overlay {
+        padding: 15px;
+    }
+
+    .notice-popup {
+        max-height: 90vh;
+    }
+
+    .notice-header {
+        padding: 16px 18px;
+    }
+
+    .notice-header h2 {
+        font-size: 21px;
+    }
+
+    .notice-content {
+        padding: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .notice-overlay {
+        padding: 10px;
+    }
+
+    .notice-popup {
+        width: 100%;
+
+        max-height: 92vh;
+
+        border-radius: 9px;
+    }
+
+    .notice-header {
+        padding: 14px 15px;
+    }
+
+    .notice-header h2 {
+        font-size: 18px;
+    }
+
+    .notice-header p {
+        font-size: 13px;
+    }
+
+    .notice-close {
+        width: 34px;
+        height: 34px;
+
+        font-size: 24px;
+    }
+
+    .notice-content {
+        padding: 12px;
+    }
+
+    .notice-item {
+        grid-template-columns: 28px 1fr;
+
+        gap: 10px;
+
+        padding: 12px;
+
+        margin-bottom: 10px;
+    }
+
+    .notice-number {
+        width: 27px;
+        height: 27px;
+
+        font-size: 12px;
+    }
+
+    .notice-en {
+        font-size: 13px;
+
+        line-height: 1.55;
+    }
+
+    .notice-hi {
+        font-size: 12.5px;
+
+        line-height: 1.65;
+    }
+
+    .sub-notice {
+        padding-left: 8px;
+    }
+
+    .sub-item {
+        grid-template-columns: 32px 1fr;
+
+        gap: 7px;
+    }
+
+    .sub-item strong {
+        font-size: 12px;
+    }
+
+    .notice-footer {
+        padding: 10px 12px;
+    }
+
+    .notice-close-btn {
+        width: 100%;
+
+        min-height: 44px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .notice-overlay {
+        padding: 6px;
+    }
+
+    .notice-popup {
+        max-height: 94vh;
+    }
+
+    .notice-header h2 {
+        font-size: 16px;
+    }
+
+    .notice-header p {
+        font-size: 11px;
+    }
+
+    .notice-content {
+        padding: 9px;
+    }
+
+    .notice-item {
+        padding: 10px;
+
+        grid-template-columns: 25px 1fr;
+
+        gap: 8px;
+    }
+
+    .notice-number {
+        width: 24px;
+        height: 24px;
+    }
+
+    .notice-en {
+        font-size: 12px;
+    }
+
+    .notice-hi {
+        font-size: 11.5px;
+    }
+
+}
+
