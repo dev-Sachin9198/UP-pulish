@@ -1,22 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>auth/register</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>/auth/register</title>
+<link rel="icon" type="image/png" href="./Logo/UP_P_Logo.png">
+<link rel="stylesheet" href="Registration.css">
+<link rel="stylesheet" href="otr-form.css">
+
 </head>
 <body>
-        <header>
-        <div class="uplog"><img src="https://www.upprpb.in/assets/images/UPPRPB_Logo.png" alt="UPPRPB Logo"></div>
-        <div class="bottom">
-            <button data-size="dec2">A--</button>
-            <button data-size="dec">A-</button>
-            <button data-size="reset" style="background-color: black; color: white;">A</button>
-            <button data-size="inc">A+</button>
-            <button data-size="inc2">A++</button>
+
+  <header class="site-header">
+      
+      <div class="header-controls">
+         <button type="button" class="home-btn" id="homeBtn">Home</button>
+          
+          <div class="font-size-toggle" role="group" aria-label="Text size controls">
+              <button type="button" data-size="dec2">A--</button>
+              <button type="button" data-size="dec">A-</button>
+              <button type="button" data-size="reset" class="active">A</button>
+              <button type="button" data-size="inc">A+</button>
+              <button type="button" data-size="inc2">A++</button>
+            </div>
         </div>
-    </header>
-    <h1>Registration Start</h1>
+        <div class="header-top">
+          <div class="logo-slot logo-left">
+            <img src="./Logo/UP_P_Logo.png" alt="Logo">
+          </div>
+    
+          <div class="header-title">
+            <h1 class="title-primary">उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड</h1>
+            <h2 class="title-secondary">UTTAR PRADESH POLICE RECRUITMENT AND PROMOTION BOARD
+</h2>
+          </div>
+    
+          <div class="logo-slot logo-right">
+            <img src="./Logo/UP_P_Logo.png" alt="Logo">
+          </div>
+        </div>
+  </header>
+
+  <div class="wrapper">
+
+  <h1 class="page-title">वन टाइम रजिस्ट्रेशन (ओटीआर) / ONE TIME REGISTRATION (OTR)</h1>
+    
+  <div style="display: flex; gap: 10px;">
+  <img src="./Logo/PersonLinesFill.png" alt="profile logo" height="30px " width="30px">
+  <h2>अकाउंट बनाएँ / Create an Account</h2>
+</div>
+  <div class="already">
+   पूर्व से अकाउंट है / Already have an Account?  <a href=".//Login/Login.html">Login</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Contact Details</div>
+
+    <p class="notice">* कृपया वैध ईमेल पता और सक्रिय मोबाइल नंबर दर्ज करें / Enter valid email address and active mobile number</p>
+
+    <div class="fields-row">
+      <!-- Email column -->
+      <div class="field-col">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Email Address">
+        <button type="button" class="otp-btn" id="emailOtpBtn">Generate Email OTP</button>
+        <div class="otp-boxes" id="emailOtpBoxes">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+        </div>
+        <p class="status" id="emailStatus"></p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Mobile column -->
+      <div class="field-col">
+        <label for="mobile">Mobile Number</label>
+        <input type="tel" id="mobile" placeholder="Mobile Number">
+        <button type="button" class="otp-btn" id="mobileOtpBtn">Generate Mobile OTP</button>
+        <div class="otp-boxes" id="mobileOtpBoxes">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+          <input type="text" maxlength="1" inputmode="numeric">
+        </div>
+        <p class="status" id="mobileStatus"></p>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="actions">
+      <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+      <button type="button" class="btn-primary" id="verifyBtn">Verify &amp; Proceed</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="info-container">
+
+  <div class="info-box">
+    <span>Verification</span>
+    <span>सत्यापन</span>
+  </div>
+
+  <div class="info-box">
+    <span>Personal Information</span>
+    <span>व्यक्तिगत जानकारी</span>
+  </div>
+
+  <div class="info-box">
+    <span>Create Password</span>
+    <span>पासवर्ड बनाएँ</span>
+  </div>
+
+</div>
+ 
+<p class="sss">Website content managed and owned by UPPRPB, Uttar Pradesh, India., All Rights Reserved</p>
+
+  <script>
+  document.getElementById("homeBtn").addEventListener("click", function () {
+    window.location.href = "index.html";
+  });
+</script>
+<script src="./Registration.js"></script>
 </body>
 </html>
