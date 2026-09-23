@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In to Your Account</title>
+    <link rel="stylesheet" href="./SignAuth.css">
+</head>
+<body>
+      <!-- Header (100px on desktop, scales down on smaller screens) -->
+  <header class="page-header">
+    <div class="header-inner">
+      <div class="header-logo"><img src="/Logo/UP_P_Logo.png" style="height: 50px;"/></div>
+      <div class="header-title">
+        <span class="hi">उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड</span>
+        <span class="en">UP Police Recruitment and Promotion Board</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="card">
+      <h1>अपने खाते में साइन इन करें I/Sign In to Your Account</h1>
+
+      <div class="field">
+        <input type="password" id="phone" placeholder="ओटीआर के दौरान उपयोग किया गया फोन नंबर/Phone Number">
+        <button type="button" class="toggle-eye" id="toggleEye" aria-label="Show/Hide">🙈</button>
+      </div>
+
+      <div class="otp-row">
+        <button type="button" class="btn-generate-otp" id="generateOtpBtn">Generate Aadhaar OTP</button>
+        <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+        <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+        <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+        <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+        <input type="text" maxlength="1" class="otp-box" inputmode="numeric">
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="consentCheck">
+        <div class="consent-text">
+          I hereby authorize UPPRPB and have no objection if UPPRPB retrieves and use my
+          details such as Name, Gender, DOB, Address, Photo for KYC identification from
+          Unique Identification Authority of India (UIDAI) using Face Authentication/Biometric/OTP validation.
+        </div>
+      </div>
+
+      <div class="cf-widget">
+        <div class="cf-left">
+          <div class="cf-check">✓</div>
+          <span class="label">Success!</span>
+        </div>
+        <div class="cf-right">
+          <div class="cf-logo"><span class="cloud-icon">☁</span>CLOUDFLARE</div>
+          <div class="cf-links"><a href="#">Privacy</a> &bull; <a href="#">Help</a></div>
+        </div>
+      </div>
+
+      <button type="button" class="btn-login" id="loginBtn">लॉगिन/Login</button>
+      <a href="#" class="back-link" id="backLink">वापस/Back</a>
+    </div>
+  </main>
+
+  <!-- Footer (30px) -->
+  <footer class="page-footer">&copy; Website content managed and owned by UPPRPB, Uttar Pradesh, India., All Rights Reserved</footer>
+  <script src="./SignAuth.js"></script>
+</body>
+</html>
