@@ -1,81 +1,430 @@
-// Demo-only mock OTP flow. No real messages are sent anywhere.
-// The "correct" code is always 123456, purely for demonstrating the UI.
-const MOCK_OTP = '123456';
+const MOCK_OTP = "123456";
 
-function setupOtpFlow(triggerBtnId, inputId, boxesId, statusId, label) {
-  const triggerBtn = document.getElementById(triggerBtnId);
-  const input = document.getElementById(inputId);
-  const boxes = document.querySelectorAll(`#${boxesId} input`);
-  const status = document.getElementById(statusId);
 
-  // Auto-advance between OTP boxes
-  boxes.forEach((box, i) => {
-    box.addEventListener('input', () => {
-      box.value = box.value.replace(/[^0-9]/g, '');
-      if (box.value && i < boxes.length - 1) {
-        boxes[i + 1].focus();
+
+const email = document.getElementById("email");
+const mobile = document.getElementById("mobile");
+
+const emailOtpBtn = document.getElementById("emailOtpBtn");
+const mobileOtpBtn = document.getElementById("mobileOtpBtn");
+
+const emailStatus = document.getElementById("emailStatus");
+const mobileStatus = document.getElementById("mobileStatus");
+
+const verifyBtn = document.getElementById("verifyBtn");
+const cancelBtn = document.getElementById("cancelBtn");
+const homeBtn = document.getElementById("homeBtn");
+
+
+
+
+homeBtn.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
+
+
+
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+
+
+
+function isValidMobile(value) {
+  return /^[6-9]\d{9}$/.test(value);
+}
+
+
+
+function showStatus(element, message, type) {
+  element.textContent = message;
+  element.className = `status ${type}`;
+}
+
+
+
+function setupOtpBoxes(containerId) {
+
+  const boxes = Array.from(
+    document.querySelectorAll(`#${containerId} input`)
+  );
+
+  boxes.forEach((box, index) => {
+
+    /* Only numbers */
+    box.addEventListener("input", (event) => {
+
+      event.target.value =
+        event.target.value.replace(/\D/g, "").slice(0, 1);
+
+      if (
+        event.target.value &&
+        index < boxes.length - 1
+      ) {
+        boxes[index + 1].focus();
       }
     });
-    box.addEventListener('keydown', (e) => {
-      if (e.key === 'Backspace' && !box.value && i > 0) {
-        boxes[i - 1].focus();
+
+
+    /* Backspace */
+    box.addEventListener("keydown", (event) => {
+
+      if (
+        event.key === "Backspace" &&
+        !box.value &&
+        index > 0
+      ) {
+        boxes[index - 1].focus();
       }
     });
+
+
+    /* Arrow navigation */
+    box.addEventListener("keydown", (event) => {
+
+      if (
+        event.key === "ArrowLeft" &&
+        index > 0
+      ) {
+        boxes[index - 1].focus();
+      }
+
+      if (
+        event.key === "ArrowRight" &&
+        index < boxes.length - 1
+      ) {
+        boxes[index + 1].focus();
+      }
+    });
+
+
+    /* Paste 6 digit OTP */
+    box.addEventListener("paste", (event) => {
+
+      event.preventDefault();
+
+      const pastedText =
+        event.clipboardData
+          .getData("text")
+          .replace(/\D/g, "")
+          .slice(0, boxes.length);
+
+      pastedText
+        .split("")
+        .forEach((digit, i) => {
+          boxes[i].value = digit;
+        });
+
+      const nextIndex =
+        Math.min(
+          pastedText.length,
+          boxes.length - 1
+        );
+
+      boxes[nextIndex].focus();
+    });
+
   });
 
-  triggerBtn.addEventListener('click', () => {
-    if (!input.value.trim()) {
-      status.textContent = `Enter your ${label} first.`;
-      status.className = 'status err';
-      return;
-    }
+  return boxes;
+}
 
-    // Simulate sending an OTP
-    status.textContent = `Demo OTP sent for ${label} (use 123456).`;
-    status.className = 'status ok';
-    boxes[0].focus();
+
+const emailBoxes =
+  setupOtpBoxes("emailOtpBoxes");
+
+const mobileBoxes =
+  setupOtpBoxes("mobileOtpBoxes");
+
+
+
+function readOtp(boxes) {
+
+  return boxes
+    .map(box => box.value)
+    .join("");
+}
+
+
+
+
+function clearOtp(boxes) {
+
+  boxes.forEach(box => {
+    box.value = "";
   });
 }
 
-setupOtpFlow('emailOtpBtn', 'email', 'emailOtpBoxes', 'emailStatus', 'email');
-setupOtpFlow('mobileOtpBtn', 'mobile', 'mobileOtpBoxes', 'mobileStatus', 'mobile number');
 
-function readOtp(boxesId) {
-  return Array.from(document.querySelectorAll(`#${boxesId} input`))
-    .map((b) => b.value)
-    .join('');
-}
 
-document.getElementById('verifyBtn').addEventListener('click', () => {
-  const emailOtp = readOtp('emailOtpBoxes');
-  const mobileOtp = readOtp('mobileOtpBoxes');
 
-  const emailStatus = document.getElementById('emailStatus');
-  const mobileStatus = document.getElementById('mobileStatus');
+emailOtpBtn.addEventListener("click", () => {
 
-  let ok = true;
+  const value = email.value.trim();
 
-  if (emailOtp !== MOCK_OTP) {
-    emailStatus.textContent = 'Invalid email OTP (demo code is 123456).';
-    emailStatus.className = 'status err';
-    ok = false;
+  if (!value) {
+
+    showStatus(
+      emailStatus,
+      "Please enter your email address first.",
+      "err"
+    );
+
+    email.focus();
+
+    return;
   }
 
-  if (mobileOtp !== MOCK_OTP) {
-    mobileStatus.textContent = 'Invalid mobile OTP (demo code is 123456).';
-    mobileStatus.className = 'status err';
-    ok = false;
+
+  if (!isValidEmail(value)) {
+
+    showStatus(
+      emailStatus,
+      "Please enter a valid email address.",
+      "err"
+    );
+
+    email.focus();
+
+    return;
   }
 
-  if (ok) {
-    alert('Demo verification successful. Proceeding...');
-  }
+
+  clearOtp(emailBoxes);
+
+  showStatus(
+    emailStatus,
+    "Demo OTP sent. Please use 123456.",
+    "ok"
+  );
+
+  emailBoxes[0].focus();
+
 });
 
-document.getElementById('cancelBtn').addEventListener('click', () => {
-  document.querySelectorAll('input').forEach((el) => (el.value = ''));
-  document.querySelectorAll('.status').forEach((el) => {
-    el.textContent = '';
-    el.className = 'status';
+
+
+
+mobileOtpBtn.addEventListener("click", () => {
+
+  const value = mobile.value.trim();
+
+  if (!value) {
+
+    showStatus(
+      mobileStatus,
+      "Please enter your mobile number first.",
+      "err"
+    );
+
+    mobile.focus();
+
+    return;
+  }
+
+
+  if (!isValidMobile(value)) {
+
+    showStatus(
+      mobileStatus,
+      "Enter a valid 10-digit mobile number.",
+      "err"
+    );
+
+    mobile.focus();
+
+    return;
+  }
+
+
+  clearOtp(mobileBoxes);
+
+  showStatus(
+    mobileStatus,
+    "Demo OTP sent. Please use 123456.",
+    "ok"
+  );
+
+  mobileBoxes[0].focus();
+
+});
+
+
+
+
+mobile.addEventListener("input", () => {
+
+  mobile.value =
+    mobile.value
+      .replace(/\D/g, "")
+      .slice(0, 10);
+
+});
+
+
+
+
+verifyBtn.addEventListener("click", () => {
+
+  const emailValue = email.value.trim();
+  const mobileValue = mobile.value.trim();
+
+  const emailOtp = readOtp(emailBoxes);
+  const mobileOtp = readOtp(mobileBoxes);
+
+  let valid = true;
+
+
+  /* ---------- Email ---------- */
+
+  if (!isValidEmail(emailValue)) {
+
+    showStatus(
+      emailStatus,
+      "Please enter a valid email address.",
+      "err"
+    );
+
+    valid = false;
+
+  } else if (emailOtp !== MOCK_OTP) {
+
+    showStatus(
+      emailStatus,
+      "Invalid email OTP. Demo OTP is 123456.",
+      "err"
+    );
+
+    valid = false;
+
+  } else {
+
+    showStatus(
+      emailStatus,
+      "Email verified successfully.",
+      "ok"
+    );
+
+  }
+
+
+
+
+  if (!isValidMobile(mobileValue)) {
+
+    showStatus(
+      mobileStatus,
+      "Please enter a valid 10-digit mobile number.",
+      "err"
+    );
+
+    valid = false;
+
+  } else if (mobileOtp !== MOCK_OTP) {
+
+    showStatus(
+      mobileStatus,
+      "Invalid mobile OTP. Demo OTP is 123456.",
+      "err"
+    );
+
+    valid = false;
+
+  } else {
+
+    showStatus(
+      mobileStatus,
+      "Mobile number verified successfully.",
+      "ok"
+    );
+
+  }
+
+
+  /* ---------- Success ---------- */
+
+  if (valid) {
+
+    alert(
+      "Demo verification successful!\n\nProceeding to Personal Information..."
+    );
+
+    /*
+      Future page:
+
+      window.location.href =
+        "./PersonalInformation/PersonalInformation.html";
+    */
+  }
+
+});
+
+
+
+
+cancelBtn.addEventListener("click", () => {
+
+  email.value = "";
+  mobile.value = "";
+
+  clearOtp(emailBoxes);
+  clearOtp(mobileBoxes);
+
+  emailStatus.textContent = "";
+  emailStatus.className = "status";
+
+  mobileStatus.textContent = "";
+  mobileStatus.className = "status";
+
+  email.focus();
+
+});
+
+
+
+
+const fontButtons =
+  document.querySelectorAll(
+    ".font-size-toggle button"
+  );
+
+const fontScales = {
+  dec2: 0.85,
+  dec: 0.92,
+  reset: 1,
+  inc: 1.08,
+  inc2: 1.18
+};
+
+
+fontButtons.forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const size =
+      button.dataset.size;
+
+    const scale =
+      fontScales[size] || 1;
+
+    document.documentElement.style
+      .setProperty(
+        "--font-scale",
+        scale
+      );
+
+
+    /* Active button */
+
+    fontButtons.forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
   });
+
 });
+

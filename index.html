@@ -3,131 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>UPPRPB - UP Police Recruitment and Promotion Board</title>
+
     <link rel="icon" type="image/png" href="./Logo/UP_P_Logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
-        <div class="uplog"><img src="./Logo/UPPRPB_Logo.png" alt="UPPRPB Logo"></div>
-        <div class="bottom">
+
+
+    <header class="header">
+
+        <div class="uplog">
+            <img src="./Logo/UPPRPB_Logo.png" alt="UPPRPB Logo">
+        </div>
+
+        <div class="font-controls">
             <button data-size="dec2">A--</button>
             <button data-size="dec">A-</button>
-            <button data-size="reset" style="background-color: black; color: white;">A</button>
+            <button data-size="reset" class="active">A</button>
             <button data-size="inc">A+</button>
             <button data-size="inc2">A++</button>
         </div>
+
     </header>
 
+
+
     <div class="marquee">
-        <p>वर्तमान में, सब-इंस्पेक्टर सिविल पुलिस एवं समकक्ष पदों के लिए सीधी भर्ती 2025 चालू है। Currently, Direct Recruitment 2025 for Sub Inspector Civil Police and Equivalent Posts is live.</p>
+        <p>
+            वर्तमान में, सब-इंस्पेक्टर सिविल पुलिस एवं समकक्ष पदों के लिए सीधी भर्ती 2025 चालू है।
+            Currently, Direct Recruitment 2025 for Sub Inspector Civil Police and Equivalent Posts is live.
+        </p>
     </div>
 
-    <!-- background img -->
-    <div class="backgroundimg">
-        <img height="458px" width="100%" src="./Logo/banner_bg_img.jpg" alt="Banner">
-        <div class="leftbuttom">
-            <h3>For new users</h3><br>
-            <h3>Create your "One Time Registration (OTR)" account</h3><br>
-            <a href="./Registration.html"><button class="leftb">Register Here</button></a>
-        </div>
-        <div class="rightbuttom">
-            <h3 style="padding-top: 10px;">For already registered users</h3><br>
-            <h3>Login after "One Time Registration (OTR)", To apply for the UPPRPB vacancies</h3>
-            <div id="sachin">
-                <button class="b1">Login With Account</button>
-                <button class="b2">OR</button>
-                <button class="b1">Login with Aadhaar ID</button>
-                <button class="b2">OR</button>
-                <button class="b1">Login With DigiLocker</button>
-            </div>
-        </div>
-    </div>
 
-    <section id="security">
-        <div class="section">
-            <div class="scroll">
-                <h2>FAQ</h2><br><br>
-                <p>OTR Filling FAQ-English</p><hr><br>
-                <p style="text-align: left;">OTR Filling FAQ-Hindi</p><hr><br>
-                <p style="text-align: left;">SI Apply FAQ-English</p><hr><br>
-                <p style="text-align: left;">SI Apply FAQ-Hindi</p><hr><br>
-            </div>
-            <div class="section2">
-                <h2 style="text-align: center;">Technical Help Desk</h2>
-                <p style="margin-top: 10px;">For queries related to technical issues of <br>portal only.<br><br>
-                    📞18009110005<br><br>
-                    📧upprpb.support@csccloud.in<br><br>
-                    (10:00 AM to 7:00 PM)</p>
-            </div>
-        </div>
 
-        <div class="section3">
-            <h2>Latest Notifications</h2>
-            <div>
-                <img style="width: 100px; height: 100px;" src="./Logo/UP_P_Logo.png" alt="UP Police Logo">
-                <div class="img">
-                    <p style="color: black;">उप निरीक्षक नागरिक पुलिस एवं समकक्ष पदों के लिए सीधी भर्ती 2025 / Direct
-                        Recruitment 2025 for Sub Inspector Civil Police and Equivalent Posts
-                        <br><br>[Advt No - पीआरपीबी-बी(उपनिरीक्षक संवर्ग) 03/2025 / PRPB-B(Sub-Inspector Cadre) 03/2025]<br><br><br>
-                        Application End Date :11/09/2025 23:59</p>
+    <section class="hero">
+
+        <img
+            src="./Logo/banner_bg_img.jpg"
+            alt="UPPRPB Banner"
+            class="hero-image"
+        >
+
+        <div class="hero-overlay">
+
+            <!-- New Users -->
+            <div class="registration-card">
+
+                <h3>For new users</h3>
+
+                <p>
+                    Create your "One Time Registration (OTR)" account
+                </p>
+
+                <a href="./Registration.html">
+                    <button class="register-btn">
+                        Register Here
+                    </button>
+                </a>
+
+            </div>
+
+
+            <!-- Existing Users -->
+            <div class="login-card">
+
+                <h3>For already registered users</h3>
+
+                <p>
+                    Login after "One Time Registration (OTR)",
+                    To apply for the UPPRPB vacancies
+                </p>
+
+                <div class="login-buttons">
+
+                    <button class="login-btn">
+                        Login With Account
+                    </button>
+
+                    <span>OR</span>
+
+                    <button class="login-btn">
+                        Login with Aadhaar ID
+                    </button>
+
+                    <span>OR</span>
+
+                    <button class="login-btn">
+                        Login With DigiLocker
+                    </button>
+
                 </div>
-            </div>
-        </div>
 
-        <div>
-            <div class="video1">
-                <h2 class="v1">Video Assistance</h2>
-                <h2 class="v2">One Time Registration(OTR) Video</h2>
-                <video controls poster="./Logo/videoImage.png" class="v3">
-                    <source src="./Logo/OTR_UPPRPB-final-18-june.mp4">
-                </video>
             </div>
 
-            <div class="vi1">
-                <h2>Application filling Video</h2>
-                <video controls poster="./Logo/videoImage.png">
-                    <source src="./Logo/apply 1.mp4">
-                </video>
-            </div>
         </div>
+
     </section>
 
-    <div id="imgbhandara">
-        <div><img style="width: 220px; height: 90px;" src="https://www.upprpb.in/assets/images/other_img_02.png" alt=""></div>
-        <div><img style="width: 220px; height: 90px;" src="https://www.upprpb.in/assets/images/other_img_05.png" alt=""></div>
-        <div><img style="width: 220px; height: 90px;" src="https://www.upprpb.in/assets/images/UPGovt.png" alt=""></div>
-        <div><img style="width: 220px; height: 90px;" src="https://www.upprpb.in/assets/images/other_img_01.png" alt=""></div>
-        <div><img style="width: 220px; height: 90px;" src="https://www.upprpb.in/assets/images/other_img_04.png" alt=""></div>
-        <div><img style="width: 220px; height: 90px;" src="https://www.upprpb.in/assets/images/upprpb.png" alt=""></div>
-    </div>
 
-    <div class="privacy">
-        <h2>Privacy Policy</h2>
-    </div>
-    <hr>
-    <div class="textl">
-        <p>This website does not automatically capture any specific personal information from you, (like name, phone number or email address) that allows us to identify you individually. Wherever the Website requests you to provide personal information, you will be informed for the particular purposes for which the information is gatheres, and adequate security measures will be taken to protect your personal information. We do not sell or share any personally identifiable information volunteered on the website to any third party (public or private). Any information provided to this Website will be protected from loss, misuse, unauthorized access or disclosure, alteration, or destruction. We gather certain information about the user, such as Internet Protocol (IP) addresses, domain name, browser type, operating system, the date and time of the visit, and the pages visited. We make no attempt to link these addresses with the identity of the individuals visiting our site unless an attempt to damage the site has been detected.</p>
-    </div>
 
-    <footer id="footer">
-        <div class="footer1">
-            <h2>About UP Police</h2><br><br>
-            <p>The UPPRPB was established by the government order dated 2/12/2008 for conduting the selection process in transparent and efficient way regarding the recruitment of various non gazetted posts in UP police and to ensure the unhindered process of promotion.</p>
+    <main>
+
+        <section class="information-section">
+
+            <!-- FAQ -->
+            <div class="faq-card">
+
+                <h2>FAQ</h2>
+
+                <div class="faq-list">
+
+                    <p>OTR Filling FAQ-English</p>
+                    <hr>
+
+                    <p>OTR Filling FAQ-Hindi</p>
+                    <hr>
+
+                    <p>SI Apply FAQ-English</p>
+                    <hr>
+
+                    <p>SI Apply FAQ-Hindi</p>
+                    <hr>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="help-card">
+
+                <h2>Technical Help Desk</h2>
+
+                <p>
+                    For queries related to technical issues of portal only.
+                </p>
+
+                <div class="contact-info">
+                    <p>📞 18009110005</p>
+                    <p>📧 upprpb.support@csccloud.in</p>
+                    <p>🕐 10:00 AM to 7:00 PM</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="notification-card">
+
+                <h2>Latest Notifications</h2>
+
+                <div class="notification-content">
+
+                    <img
+                        src="./Logo/UP_P_Logo.png"
+                        alt="UP Police Logo"
+                    >
+
+                    <div>
+                        <p>
+                            उप निरीक्षक नागरिक पुलिस एवं समकक्ष पदों के लिए
+                            सीधी भर्ती 2025 / Direct Recruitment 2025 for
+                            Sub Inspector Civil Police and Equivalent Posts
+                        </p>
+
+                        <p>
+                            <strong>
+                                [Advt No - पीआरपीबी-बी(उपनिरीक्षक संवर्ग) 03/2025 /
+                                PRPB-B(Sub-Inspector Cadre) 03/2025]
+                            </strong>
+                        </p>
+
+                        <p>
+                            <strong>
+                                Application End Date:
+                            </strong>
+                            11/09/2025 23:59
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="videos-section">
+
+            <h2 class="section-title">
+                Video Assistance
+            </h2>
+
+
+            <div class="video-grid">
+
+                <!-- OTR Video -->
+                <div class="video-card">
+
+                    <h3>
+                        One Time Registration (OTR) Video
+                    </h3>
+
+                    <video
+                        controls
+                        poster="./Logo/videoImage.png"
+                    >
+                        <source
+                            src="./Logo/OTR_UPPRPB-final-18-june.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support video.
+                    </video>
+
+                </div>
+
+
+                <!-- Application Video -->
+                <div class="video-card">
+
+                    <h3>
+                        Application Filling Video
+                    </h3>
+
+                    <video
+                        controls
+                        poster="./Logo/videoImage.png"
+                    >
+                        <source
+                            src="./Logo/apply 1.mp4"
+                            type="video/mp4"
+                        >
+
+                        Your browser does not support video.
+                    </video>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="partners">
+
+            <div>
+                <img
+                    src="https://www.upprpb.in/assets/images/other_img_02.png"
+                    alt="Partner"
+                >
+            </div>
+
+            <div>
+                <img
+                    src="https://www.upprpb.in/assets/images/other_img_05.png"
+                    alt="Partner"
+                >
+            </div>
+
+            <div>
+                <img
+                    src="https://www.upprpb.in/assets/images/UPGovt.png"
+                    alt="UP Government"
+                >
+            </div>
+
+            <div>
+                <img
+                    src="https://www.upprpb.in/assets/images/other_img_01.png"
+                    alt="Partner"
+                >
+            </div>
+
+            <div>
+                <img
+                    src="https://www.upprpb.in/assets/images/other_img_04.png"
+                    alt="Partner"
+                >
+            </div>
+
+            <div>
+                <img
+                    src="https://www.upprpb.in/assets/images/upprpb.png"
+                    alt="UPPRPB"
+                >
+            </div>
+
+        </section>
+
+
+        <section class="privacy-section">
+
+            <h2>Privacy Policy</h2>
+
+            <hr>
+
+            <p>
+                This website does not automatically capture any specific
+                personal information from you, (like name, phone number or
+                email address) that allows us to identify you individually.
+                Wherever the Website requests you to provide personal
+                information, you will be informed for the particular
+                purposes for which the information is gathered, and adequate
+                security measures will be taken to protect your personal
+                information.
+
+                We do not sell or share any personally identifiable
+                information volunteered on the website to any third party
+                (public or private).
+
+                Any information provided to this Website will be protected
+                from loss, misuse, unauthorized access or disclosure,
+                alteration, or destruction.
+
+                We gather certain information about the user, such as
+                Internet Protocol (IP) addresses, domain name, browser type,
+                operating system, the date and time of the visit, and the
+                pages visited.
+
+                We make no attempt to link these addresses with the identity
+                of the individuals visiting our site unless an attempt to
+                damage the site has been detected.
+            </p>
+
+        </section>
+
+    </main>
+
+
+
+    <footer class="footer">
+
+        <div class="footer-about">
+
+            <h2>About UP Police</h2>
+
+            <p>
+                The UPPRPB was established by the government order dated
+                2/12/2008 for conducting the selection process in transparent
+                and efficient way regarding the recruitment of various
+                non-gazetted posts in UP police and to ensure the unhindered
+                process of promotion.
+            </p>
+
         </div>
-        <div class="footer2">
-            <h2>Contact Us</h2><br><br>
-            <p>Tulsi Ganga Complex, 19-C Vidhan Shabha Marg, Lucknow<br><br>
-                Uttar Pradesh - 226001<br><br>
-                Phone: 0522-2235752<br><br>
-                Mob: +91 - 9454404786</p>
+
+
+        <div class="footer-contact">
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Tulsi Ganga Complex,
+                19-C Vidhan Shabha Marg,
+                Lucknow
+            </p>
+
+            <p>
+                Uttar Pradesh - 226001
+            </p>
+
+            <p>
+                Phone: 0522-2235752
+            </p>
+
+            <p>
+                Mob: +91 - 9454404786
+            </p>
+
         </div>
+
     </footer>
 
-    <p class="sss">Website content managed and owned by UPPRPB, Uttar Pradesh, India., All Rights Reserved</p>
 
-    <button id="backToTop" aria-label="Back to top">↑</button>
+
+    <div class="copyright">
+
+        Website content managed and owned by UPPRPB,
+        Uttar Pradesh, India., All Rights Reserved
+
+    </div>
+
+
+
+    <button
+        id="backToTop"
+        aria-label="Back to top"
+    >
+        ↑
+    </button>
+
 
     <script src="script.js"></script>
+
 </body>
 </html>
+

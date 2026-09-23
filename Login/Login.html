@@ -1,47 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Login.css">
-    <title>Login</title>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Login | UPPRPB</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="../Logo/UP_P_Logo.png"
+  >
+
+  <link
+    rel="stylesheet"
+    href="./Login.css"
+  >
 </head>
+
 <body>
-    <header class="site-header">
-      
-      <div class="header-controls">
-         <button type="button" class="home-btn" id="homeBtn">Home</button>
-          
-          <div class="font-size-toggle" role="group" aria-label="Text size controls">
-              <button type="button" data-size="dec2">A--</button>
-              <button type="button" data-size="dec">A-</button>
-              <button type="button" data-size="reset" class="active">A</button>
-              <button type="button" data-size="inc">A+</button>
-              <button type="button" data-size="inc2">A++</button>
-            </div>
-        </div>
-        <div class="header-top">
-          <div class="logo-slot logo-left">
-            <img src="../Logo/UP_P_Logo.png" alt="Logo">
-          </div>
-    
-          <div class="header-title">
-            <h1 class="title-primary">उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड</h1>
-            <h2 class="title-secondary">UTTAR PRADESH POLICE RECRUITMENT AND PROMOTION BOARD
-</h2>
-          </div>
-    
-          <div class="logo-slot logo-right">
-            <img src="../Logo/UP_P_Logo.png" alt="Logo">
-          </div>
-        </div>
+
+
+
+  <header class="site-header">
+
+    <!-- Header Controls -->
+    <div class="header-controls">
+
+      <button
+        type="button"
+        class="home-btn"
+        id="homeBtn"
+      >
+        Home
+      </button>
+
+
+      <div
+        class="font-size-toggle"
+        role="group"
+        aria-label="Text size controls"
+      >
+
+        <button type="button" data-size="dec2">
+          A--
+        </button>
+
+        <button type="button" data-size="dec">
+          A-
+        </button>
+
+        <button
+          type="button"
+          data-size="reset"
+          class="active"
+        >
+          A
+        </button>
+
+        <button type="button" data-size="inc">
+          A+
+        </button>
+
+        <button type="button" data-size="inc2">
+          A++
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Logo + Title -->
+
+    <div class="header-top">
+
+      <div class="logo-slot">
+        <img
+          src="../Logo/UP_P_Logo.png"
+          alt="UP Police Logo"
+        >
+      </div>
+
+
+      <div class="header-title">
+
+        <h1 class="title-primary">
+          उत्तर प्रदेश पुलिस भर्ती एवं प्रोन्नति बोर्ड
+        </h1>
+
+        <h2 class="title-secondary">
+          UTTAR PRADESH POLICE RECRUITMENT AND PROMOTION BOARD
+        </h2>
+
+      </div>
+
+
+      <div class="logo-slot">
+        <img
+          src="../Logo/UP_P_Logo.png"
+          alt="UP Police Logo"
+        >
+      </div>
+
+    </div>
+
   </header>
-  <h1 style="text-align: center;">Welcome To Login Page</h1>
-  <p style="text-align: center;"> Page On Working Development</p>
-    <script>
-  document.getElementById("homeBtn").addEventListener("click", function () {
-    window.location.href = "../index.html";
-  });
-</script>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main class="login-main">
+
+    <section class="card">
+
+      <h1>
+        अपने खाते में साइन इन करें /
+        <span>Sign In to Your Account</span>
+      </h1>
+
+
+      <!-- DigiLocker -->
+
+      <button
+        class="btn btn-digilocker"
+        type="button"
+        id="digilockerBtn"
+      >
+        डिजीलॉकर से लॉगिन /
+        Login With DigiLocker
+      </button>
+
+
+      <!-- Aadhaar -->
+
+      <button
+        class="btn btn-aadhaar"
+        type="button"
+        id="aadhaarBtn"
+      >
+        आधार आईडी से लॉगिन /
+        Login With Aadhaar ID
+      </button>
+
+
+      <!-- Account -->
+
+      <button
+        class="btn btn-account"
+        type="button"
+        id="accountBtn"
+      >
+        खाते से लॉगिन /
+        Login With Account
+      </button>
+
+
+      <!-- Create Account -->
+
+      <a
+        class="create-link"
+        href="../Registration.html"
+        id="createAccountLink"
+      >
+        खाता बनाएँ? /
+        Create an account?
+      </a>
+
+    </section>
+
+  </main>
+
+
+  
+
+  <footer class="footer">
+
+    Website content managed and owned by UPPRPB,
+    Uttar Pradesh, India. All Rights Reserved.
+
+  </footer>
+
+
+  <script src="./login.js"></script>
+
 </body>
+
 </html>
+
